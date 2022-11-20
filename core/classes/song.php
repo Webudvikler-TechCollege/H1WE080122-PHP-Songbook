@@ -17,13 +17,11 @@ class Song {
 	/**
 	 * Class Constructor
 	 * Metode som kaldes automatisk når der kaldes en instans af klassen
+	 * Constructoren globaliserer $db objektet og gør det tilgængeligt i sit scope.
+	 * Derefter tildeles det til klassens egen db property
 	 */
 	public function __construct()
 	{	
-		/**
-		 * Gør db object fra init.php synligt i denne 
-		 * metode og tildeler det til klassens db property
-		 */
 		global $db;
 		$this->db = $db;
 	}

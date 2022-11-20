@@ -1,2 +1,3 @@
 # Tilføj mappen userapp herunder
-/core/userapp/dbconf.php
+/core/_userapp/
+_*

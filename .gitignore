@@ -1,3 +1,5 @@
-# Tilføj mappen userapp herunder
-/core/_userapp/
+# Tilføj mappen userapp herunder da den indeholder følsomme adgangsoplysninger
+# /core/userapp/
+
+# Ignorer mapper som starter med underscore
 _*

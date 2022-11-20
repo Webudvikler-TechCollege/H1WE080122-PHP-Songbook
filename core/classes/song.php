@@ -16,7 +16,7 @@ class Song {
 	}
 
 	/**
-	 * Funktion til at hente lister med
+	 * Metode til at hente alle sange
 	 */
 	public function list() {
 		$sql = "SELECT id, title 
@@ -26,7 +26,8 @@ class Song {
 	}
 
 	/**
-	 * Funktion til at hente detaljer med
+	 * Metode til at hente sang detaljer
+	 * @param id (int) Sangens id
 	 */
 	public function details($id) {
 		$params = array(
@@ -42,7 +43,7 @@ class Song {
 	}
 
 	/**
-	 * Opret sang
+	 * Metode til at oprette sang med
 	 */
 	public function create() {
 		$params = array(
@@ -58,7 +59,8 @@ class Song {
 	}
 
 	/**
-	 * Opdater sang
+	 * Metode til at opdatere en sang med
+	 * Skal have sangens id med i form body
 	 */
 	public function update() {
 		$params = array(
@@ -77,6 +79,10 @@ class Song {
 		return $this->db->query($sql, $params);
 	}
 
+	/**
+	 * Metode til at slette en sang med
+	 * @param id (int) Sangens id
+	 */
 	public function delete($id) {
 		$params = array(
 			'id' => array($id, PDO::PARAM_INT)

@@ -11,6 +11,7 @@
  */
 class dbconf extends db
 {
+    // Constructor metode
     function __construct()
     {
         $this->dbhost = "localhost";

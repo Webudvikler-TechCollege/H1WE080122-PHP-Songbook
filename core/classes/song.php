@@ -1,16 +1,29 @@
-<?php 
+<?php
+/**
+ * Class Song med CRUD metoder
+ */ 
 class Song {
+	/**
+	 * Class properties
+	 */
 	public $id;
 	public $title;
 	public $content;
 	public $artist_id;
 	public $created_at;
 	public $updated_at;
-
 	private $db;
 
+	/**
+	 * Class Constructor
+	 * Metode som kaldes automatisk når der kaldes en instans af klassen
+	 */
 	public function __construct()
 	{	
+		/**
+		 * Gør db object fra init.php synligt i denne 
+		 * metode og tildeler det til klassens db property
+		 */
 		global $db;
 		$this->db = $db;
 	}

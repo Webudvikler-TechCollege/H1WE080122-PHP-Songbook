@@ -17,7 +17,7 @@ class dbconf extends db
         $this->dbhost = "localhost";
         $this->dbuser = "root";
         $this->dbpassword = "password";
-        $this->dbname = "dbname";
+        $this->dbname = "localdb";
         $db = parent::connect();
     }
 }

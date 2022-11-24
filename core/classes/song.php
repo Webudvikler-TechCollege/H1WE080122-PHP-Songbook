@@ -30,9 +30,19 @@ class Song {
 	 * Metode til at hente alle sange
 	 */
 	public function list() {
-		$sql = "SELECT id, title 
+		// Sætter sorteringsnøgle via GET vars - default nøgle er id
+		$sortkey = isset($_GET['sortkey']) && !empty($_GET['sortkey']) ? $_GET['sortkey'] : 'id';
+		// Sætter sorteringsretning via GET vars - default er ASC
+		$dir = isset($_GET['dir']) && !empty($_GET['dir']) ? $_GET['dir'] : 'ASC';
+		// Sætter begrænsning via GET vars - default alle
+		$limit = isset($_GET['limit']) && !empty($_GET['limit']) ? (int)$_GET['limit'] : false;
+		// Sætter felter via GET vars - default er id og title
+		$attributes = isset($_GET['attributes']) && !empty($_GET['attributes']) ? $_GET['attributes'] : 'id, title';
+
+		$sql = "SELECT $attributes  
 				FROM song 
-				ORDER BY title";
+				ORDER BY $sortkey $dir";
+		$sql .= ($limit) ? " LIMIT " . $limit : "";
 		return $this->db->query($sql);
 	}
 
